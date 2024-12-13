@@ -1,11 +1,14 @@
-import React from 'react'
-// import Student from './Student';
-// import logo from './pic.jpg';
+import React, { useState } from 'react'
 import StudentState from './StudentState';
 import Imagemanipulation from './imagemanipulation';
+import Login from './Login';
+import Registration from './Registration'
+import{BrowserRouter,Routes,Route} from 'react-router-dom';
+import Mainlayout from './Mainlayout';
 
 function App() {
-
+const[rdata,setrdata]=useState();
+const[loginData,setlogindata]=useState();
  
 
   // let a=12;
@@ -46,7 +49,21 @@ function App() {
     // )
     return(
       <div>
-        <Imagemanipulation />
+        {/* <div>{JSON.stringify(rdata)}</div>
+        {/* <Imagemanipulation /> */}
+        {/* <h2>Login form</h2>
+        <Login loginData={rdata}/> <br /><br />
+        <h2>Registration Form</h2>
+        <Registration regdata={setrdata}/>  */}
+
+          <BrowserRouter>
+            <Routes>
+            <Route path='/' element={<Mainlayout />}>
+              <Route path='/login' element={<Login />}/>
+              <Route path='/registration' element={<Registration />}/>
+              </Route>
+            </Routes>
+          </BrowserRouter>
 
         </div>
     )
