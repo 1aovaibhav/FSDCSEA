@@ -5,3 +5,8 @@ fsp.then(()=>{
 }).catch((err)=>{
     console.log(err);
 })
+async function readFileAsync() {
+    const data  = await promise.readFile('data.txt',{encoding:'utf-8'});
+    console.log(data);
+}
+readFileAsync();
